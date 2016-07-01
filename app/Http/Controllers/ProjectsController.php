@@ -13,7 +13,7 @@ class ProjectsController extends Controller
         $this->middleware('auth');	
 	}
 
-    public function view(Project $project)
+    public functionv view(Project $project)
     {
     	return view('projects.view', compact('project'));
     }
