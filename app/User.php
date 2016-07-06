@@ -23,4 +23,15 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    /**
+     * User belongs to Projects.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function projects()
+    {
+        // belongsTo(RelatedModel, foreignKey = projects_id, keyOnRelatedModel = id)
+        return $this->belongsToMany(Project::class, 'projects_users');
+    }
 }

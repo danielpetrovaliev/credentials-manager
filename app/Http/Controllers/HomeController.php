@@ -8,15 +8,6 @@ use Auth;
 
 class HomeController extends Controller
 {
-    /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
-    public function __construct()
-    {
-        $this->middleware('auth');
-    }
 
     /**
      * Show the application dashboard.
@@ -25,11 +16,16 @@ class HomeController extends Controller
      */
     public function index()
     {
+        if(\Auth::check()){
 
-        /*if (Auth::user()->is('admin')) {
-            dd('you are admin');
-        }*/
+            $projects = \App\Project::whereHas('users', function ($q)
+            {
+                $q->where('users.id', \Auth::user()->id);
+            })->get();
 
-        return view('home');
+            return view('projects.index', compact('projects'));
+        }
+
+        return view('projects.index');
     }
 }

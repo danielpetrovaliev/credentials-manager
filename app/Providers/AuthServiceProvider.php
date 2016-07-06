@@ -26,6 +26,9 @@ class AuthServiceProvider extends ServiceProvider
     {
         $this->registerPolicies($gate);
 
-        //
+        $gate->define('show-project', function ($user, $project)
+        {
+            return in_array($project->id, $user->projects->lists('id')->all());
+        });
     }
 }

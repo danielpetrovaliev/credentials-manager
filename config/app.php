@@ -163,7 +163,8 @@ return [
          * Third Party Service Providers...
          */
 
-        Serverfireteam\Panel\PanelServiceProvider::class
+        Serverfireteam\Panel\PanelServiceProvider::class,
+        Collective\Html\HtmlServiceProvider::class,
     ],
 
     /*
@@ -210,6 +211,8 @@ return [
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
 
+        'Form' => Collective\Html\FormFacade::class,
+        'Html' => Collective\Html\HtmlFacade::class,
     ],
 
 ];
