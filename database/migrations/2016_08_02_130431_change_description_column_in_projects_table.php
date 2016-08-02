@@ -12,7 +12,7 @@ class ChangeDescriptionColumnInProjectsTable extends Migration
      */
     public function up()
     {
-        DB::statement('ALTER TABLE projects MODIFY COLUMN description TEXT');
+        DB::statement('ALTER TABLE projects ALTER COLUMN description TYPE TEXT;');
     }
 
     /**
@@ -22,6 +22,6 @@ class ChangeDescriptionColumnInProjectsTable extends Migration
      */
     public function down()
     {
-        DB::statement('ALTER TABLE projects MODIFY COLUMN description VARCHAR(255)');
+        DB::statement('ALTER TABLE projects ALTER COLUMN description TYPE VARCHAR(255);');
     }
 }
