@@ -20,6 +20,7 @@ class ChangeDescriptionColumnInProjectsTable extends Migration
      *
      * @return void
      */
+
     public function down()
     {
         DB::statement('ALTER TABLE projects ALTER COLUMN description TYPE VARCHAR(255);');
