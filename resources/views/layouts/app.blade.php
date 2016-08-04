@@ -75,19 +75,67 @@
     @yield('content')
 
     <style>
-        .footer {
-            position: absolute;
-            bottom: 0;
-            width: 100%;
+
+
+        /* Sticky footer styles
+        -------------------------------------------------- */
+
+        html,
+        body {
+            height: 100%;
+            /* The html and body elements cannot have any padding or margin. */
+        }
+
+        /* Wrapper for page content to push down footer */
+        #wrap {
+            min-height: 100%;
+            height: auto !important;
+            height: 100%;
+            /* Negative indent footer by it's height */
+            margin: 0 auto -60px;
+        }
+
+        /* Set the fixed height of the footer here */
+        #push,
+        #footer {
             height: 60px;
+        }
+        #footer {
             background-color: #f5f5f5;
         }
+
+        /* Lastly, apply responsive CSS fixes as necessary */
+        @media (max-width: 767px) {
+            #footer {
+                margin-left: -20px;
+                margin-right: -20px;
+                padding-left: 20px;
+                padding-right: 20px;
+            }
+        }
+
+        /* Custom page CSS
+        -------------------------------------------------- */
+        /* Not required for template or sticky footer method. */
+
+        #wrap > .container {
+            padding-top: 60px;
+        }
+        .container .credit {
+            margin: 20px 0;
+        }
+
+        code {
+            font-size: 80%;
+        }
+
+
     </style>
-    <footer class="footer">
+    <div id="footer">
         <div class="container">
-            <p class="text-muted">© 2016 Нет Инфо АД. Всички права запазени.</p>
+            <p class="muted credit">© 2016 Нет Инфо АД. Всички права запазени.</p>
         </div>
-    </footer>
+    </div>
 
     <!-- JavaScripts -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.3/jquery.min.js" integrity="sha384-I6F5OKECLVtK/BL+8iSLDEHowSAfUo76ZL9+kGAgTRdiByINKJaqTPH/QVNS1VDb" crossorigin="anonymous"></script>
